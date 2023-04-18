@@ -123,7 +123,53 @@ setTimeout(() => {
 }, 3000)
 
 
+//* Crear y eliminar elementos de DOM
+
+let emptyContainerDOM = document.querySelector("#empty-container")
+console.log(emptyContainerDOM)
+
+// *crear un elemento
+let newElementDOM = document.createElement("h4") 
+// crea una referencia de un elemento de DOM
+
+newElementDOM.innerText = "Primer elemento creado desde JS"
+
+console.log(newElementDOM)
+//* Añadir un elemento a la visualización
+emptyContainerDOM.append(newElementDOM)
+
+let newElementDOM2 = document.createElement("h4") 
+newElementDOM2.innerText = "Segundo elemento creado desde JS"
+
+emptyContainerDOM.append(newElementDOM2)
 
 
+//* remover => .remove()
+setTimeout(() => {
+  newElementDOM.remove() // quitarlo de la visualización
+  // document.body.remove()
+}, 3000)
+
+setTimeout(() => {
+  newElementDOM2.remove()
+  emptyContainerDOM.append(newElementDOM)
+  emptyContainerDOM.append(newElementDOM2)
+}, 6000)
+
+
+
+// innerText vs innerHTML
+let footerDOM = document.querySelector("#footer")
+
+console.log(footerDOM)
+console.log(footerDOM.innerText)
+// innerText es SOLO el contendio texto (string) dentro de las etiquetas que abren y cierran
+
+console.log(footerDOM.innerHTML)
+// innerHTML es una version stringificada de la estructura que exista dentro de las etiquetas que abren y cierran
+let newStr = "patata"
+footerDOM.innerHTML = `<h1 id="last-title"> <span> ${newStr} </span> </h1>`
+
+console.log(footerDOM.innerHTML)
 
 
